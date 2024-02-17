@@ -8,6 +8,12 @@ const pagecontent = () => {
     setClicked(!clicked);
   };
 
+    const [isSearchClicked, setIsSearchClicked] = useState(false);
+  
+    const handleSearchClick = () => {
+      setIsSearchClicked(!isSearchClicked);
+    };
+
   const courses = [
     {
       "course_prefix": "COMP",
@@ -75,25 +81,41 @@ const pagecontent = () => {
         <div>DevSoc presents</div>
         <div
           style={{ fontSize: "50px", fontWeight: 'bold', color: clicked ? '#FF96E9' : '#1279f2', cursor: 'pointer' }}
-          onClick={handleClick}
-        >
-          unilectives
-        </div>
+          onClick={handleClick}>unilectives </div>
         <div><strong>Your one-stop shop for UNSW course and elective reviews.</strong></div>
-        <div>Search Bar</div>
+        <Flex style={{padding: '8px', color:"#989EFF", borderRadius: '6px', cursor: 'pointer', border: '2px solid #989EFF'}} onClick={handleSearchClick}>
+        <img src="/search.svg" alt="Search Logo" style={{ marginRight: '16px'}}/>
+          Search for a course e.g COMP1511</Flex>
         <div>Sort By</div>
-
+        {isSearchClicked && (
+        <div style={{
+          position: 'fixed',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          width: '200px',
+          height: '100px',
+          border: '1px solid black',
+          backgroundColor: 'white',
+          zIndex: '9999',
+          textAlign: 'center',
+          borderRadius: '10px'
+        }} 
+        >
+          <Button onClick={handleSearchClick}>Dismiss</Button>
+        </div>
+      )}
         <div>
           {coursesRows.map((row, index) => (
             <Flex key={index} mt={"30px"}>
               {row.map((course, index) => (
-                <Box key={index} flex="1" minWidth="200px" height="200px" borderRadius="md" boxShadow="md" p={4} mr={10} >
+                <Box backgroundColor={"#FBFBFB"} key={index} flex="1" minWidth="200px" height="200px" borderRadius="md" boxShadow="lg" p={4} mr={10} >
                     <VStack alignItems="flex-start">
 
                   <Flex flexDirection="row" justifyContent="space-between" width="100%">
                     <div style={{fontWeight: "790", fontSize: "20px" }}>{course.course_prefix + course.course_code}</div>
-                    <VStack alignItems="flex-end" spacing={2}>
-                      <div>Stars: {course.average_stars}</div>
+                    <VStack alignItems="flex-start" spacing={2}>
+                      <div style={{fontSize: "24px", color: "#CDA4FF"}}> ★★★★★ </div>
                       <div style={{fontSize: "12px", color: "grey", marginTop: "-10px" }}> {course.total_reviews} reviews</div>
                     </VStack>
                   </Flex >
