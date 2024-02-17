@@ -87,9 +87,9 @@ const pagecontent = () => {
           {coursesRows.map((row, index) => (
             <Flex key={index} mt={"30px"}>
               {row.map((course, index) => (
-                <Box key={index} flex="1" minWidth="200px" height="200px" borderRadius="md" boxShadow="md" p={4} mr={10}>
+                <Box key={index} flex="1" minWidth="200px" height="200px" borderRadius="md" boxShadow="md" p={4} mr={10} >
                     <VStack alignItems="flex-start">
-                 
+
                   <Flex flexDirection="row" justifyContent="space-between" width="100%">
                     <div style={{fontWeight: "790", fontSize: "20px" }}>{course.course_prefix + course.course_code}</div>
                     <VStack alignItems="flex-end" spacing={2}>
@@ -97,7 +97,7 @@ const pagecontent = () => {
                       <div style={{fontSize: "12px", color: "grey", marginTop: "-10px" }}> {course.total_reviews} reviews</div>
                     </VStack>
                   </Flex >
-                    <div style={{fontSize: "14px"}}>{course.course_title}</div>
+                    <div style={{fontSize: "14px", marginBottom: "50px"}}>{course.course_title}</div>
 
                     <Flex>
                       {course.offered_terms.map((term, index) => (
@@ -117,6 +117,8 @@ const pagecontent = () => {
                         </Button>
                       ))}
                   </Flex>
+
+                  
                   </VStack>
                 </Box>
               ))}
@@ -127,6 +129,5 @@ const pagecontent = () => {
     </Box>
   );
 }
-
 
 export default pagecontent
