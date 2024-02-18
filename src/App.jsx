@@ -6,7 +6,7 @@ function App() {
   return (
     <Flex>
       {/* Side bar */}
-      <Box w={"80px"}>
+      <Box minWidth={"80px"} maxWidth={"80px"}>
       <Sidebar/>
       </Box>
       {/*Page Content */}
