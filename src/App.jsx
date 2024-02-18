@@ -13,7 +13,6 @@ function App() {
     <Box flex={1} w={{base:"calc(100%-70px)", md: "calc(100% - 240px"}}>
       <PageContent/>
     </Box>
-
     </Flex>
   )
 }
