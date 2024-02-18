@@ -80,13 +80,14 @@ const pagecontent = () => {
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <div>DevSoc presents</div>
         <div
-          style={{ fontSize: "50px", fontWeight: 'bold', color: clicked ? '#FF96E9' : '#1279f2', cursor: 'pointer' }}
+          style={{ fontSize: "70px", fontWeight: 'bold', color: clicked ? '#FF96E9' : '#1279f2', cursor: 'pointer' }}
           onClick={handleClick}>unilectives </div>
-        <div><strong>Your one-stop shop for UNSW course and elective reviews.</strong></div>
-        <Flex style={{padding: '8px', color:"#989EFF", borderRadius: '6px', cursor: 'pointer', border: '2px solid #989EFF'}} onClick={handleSearchClick}>
+        <div style={{marginBottom: "40px"}}><strong>Your one-stop shop for UNSW course and elective reviews.</strong></div>
+
+        {/* Search Bar */}
+        <Flex style={{width:'97%', height:'40px', alignItems: 'center', padding: '8px', color:"#989EFF", borderRadius: '6px', cursor: 'pointer', border: '2px solid #989EFF'}} onClick={handleSearchClick}>
         <img src="/search.svg" alt="Search Logo" style={{ marginRight: '16px'}}/>
           Search for a course e.g COMP1511</Flex>
-        <div>Sort By</div>
         {isSearchClicked && (
         <div style={{
           position: 'fixed',
@@ -99,19 +100,40 @@ const pagecontent = () => {
           backgroundColor: 'white',
           zIndex: '9999',
           textAlign: 'center',
-          borderRadius: '10px'
-        }} 
-        >
+          borderRadius: '10px',
+          padding: '20px'
+        }}>
           <Button onClick={handleSearchClick}>Dismiss</Button>
         </div>
-      )}
+        )}
+
+        {/* Sort By */}
+        <Flex style={{
+          width: '200px',
+          height: '43px',
+          border: '1px solid #A9A9A9',
+          borderRadius: '6px',
+          padding: '10px 10px', 
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          cursor: 'pointer',
+          color: '#A9A9A9',
+          marginTop: '20px'
+        }} boxShadow={'md'} >
+          <div>
+          Sort by
+          </div>
+          <img src="/arrowdown.svg" alt="Arrow Logo" style={{height:"15px"}}/>
+        </Flex>
+
+        {/* Courses */}
         <div>
           {coursesRows.map((row, index) => (
             <Flex key={index} mt={"30px"}>
               {row.map((course, index) => (
                 <Box backgroundColor={"#FBFBFB"} key={index} flex="1" minWidth="200px" height="200px" borderRadius="md" boxShadow="lg" p={4} mr={10} >
                     <VStack alignItems="flex-start">
-
                   <Flex flexDirection="row" justifyContent="space-between" width="100%">
                     <div style={{fontWeight: "790", fontSize: "20px" }}>{course.course_prefix + course.course_code}</div>
                     <VStack alignItems="flex-start" spacing={2}>
@@ -119,8 +141,8 @@ const pagecontent = () => {
                       <div style={{fontSize: "12px", color: "grey", marginTop: "-10px" }}> {course.total_reviews} reviews</div>
                     </VStack>
                   </Flex >
-                    <div style={{fontSize: "14px", marginBottom: "50px"}}>{course.course_title}</div>
-
+        
+                    <Box height="50px" style={{fontSize: "14px", marginBottom: "25px"}}>{course.course_title}</Box>
                     <Flex>
                       {course.offered_terms.map((term, index) => (
                         <Button
@@ -139,8 +161,6 @@ const pagecontent = () => {
                         </Button>
                       ))}
                   </Flex>
-
-                  
                   </VStack>
                 </Box>
               ))}
