@@ -63,7 +63,7 @@ const courses = () => {
     
       const coursesRows = chunkArray(courses, 3);
   return (
-    <div>
+    <div style={{color: "black" }}>
     {coursesRows.map((row, index) => (
       <Flex key={index} mt={"30px"}>
         {row.map((course, index) => (
@@ -78,7 +78,7 @@ const courses = () => {
             </Flex >
   
               <Box height="50px" style={{fontSize: "14px", marginBottom: "25px"}}>{course.course_title}</Box>
-              <Flex>
+              <Flex >
                 {course.offered_terms.map((term, index) => (
                   <Button
                     key={index}
@@ -89,7 +89,8 @@ const courses = () => {
                       borderRadius: "20px",
                       fontWeight: "light",
                       fontSize: "12px",
-                      marginRight: "8px"
+                      marginRight: "8px",
+                      color:"black"
                     }}
                   >
                     {term}

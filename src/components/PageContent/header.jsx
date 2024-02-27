@@ -8,12 +8,12 @@ const header = () => {
     };
   
     return (
-        <div>
-            <div>DevSoc presents</div>
+        <div style={{ color: "black" }}>
+            <div >DevSoc presents</div>
             <div
             style={{ fontSize: "70px", fontWeight: 'bold', color: clicked ? '#FF96E9' : '#1279f2', cursor: 'pointer' }}
             onClick={handleClick}>unilectives </div>
-            <div style={{marginBottom: "40px"}}><strong>Your one-stop shop for UNSW course and elective reviews.</strong></div>
+            <div style={{marginBottom: "40px" }}><strong>Your one-stop shop for UNSW course and elective reviews.</strong></div>
         </div>
     )
 }

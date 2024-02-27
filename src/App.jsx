@@ -10,7 +10,7 @@ function App() {
       <Sidebar/>
       </Box>
       {/*Page Content */}
-    <Box flex={1} w={{base:"calc(100%-70px)", md: "calc(100% - 240px"}}>
+    <Box flex={1} w={{base:"calc(100%-70px)", md: "calc(100% - 240px"}} style={{backgroundColor: 'white'}}>
       <PageContent/>
     </Box>
     </Flex>

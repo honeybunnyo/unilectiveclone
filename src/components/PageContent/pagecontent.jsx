@@ -9,7 +9,7 @@ const pagecontent = () => {
 
   return (
     <Box mx={130}>
-      <div style={{ display: 'flex', flexDirection: 'column' }}>
+      <div style={{ display: 'flex', flexDirection: 'column'}}>
         <Header/>
         <SearchBar/>
         <Sortby/>
