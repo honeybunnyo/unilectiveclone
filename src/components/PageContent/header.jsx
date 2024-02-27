@@ -9,7 +9,7 @@ const header = () => {
   
     return (
         <div style={{ color: "black" }}>
-            <div >DevSoc presents</div>
+            <div style={{marginTop: "40px" }}>DevSoc presents</div>
             <div
             style={{ fontSize: "70px", fontWeight: 'bold', color: clicked ? '#FF96E9' : '#1279f2', cursor: 'pointer' }}
             onClick={handleClick}>unilectives </div>
